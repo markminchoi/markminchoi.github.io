@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- 22.09.04 markminchoi -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('//cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+
+        body {
+            margin: 0;
+            padding: 1px;
+            margin-top: 0;
+            color: rgb(55, 53, 47);
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            background-color: #fafafa;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera*/
+        }
+
+        a,
+        a.visited {
+            color: inherit;
+            text-decoration: underline;
+        }
+
+        h1,
+        h2,
+        h3 {
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            font-weight: 600;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 0.75em;
+        }
+
+        h1 {
+            font-size: 1.875rem;
+            margin-top: 1.875rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 1.25rem;
+        }
+
+        @page {
+            margin: 1in;
+        }
+
+
+        .page {
+            font-family: "Pretendard Variable";
+            margin: 2em auto;
+            max-width: 90vw;
+            line-height: 1.5;
+        }
+
+
+        p {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+
+
+        img {
+            display: block;
+            width: 50%;
+        }
+
+
+        .table {
+            table-layout: auto;
+            width: 100%;
+            text-align: center;
+            border-spacing: 1px 0;
+            border-collapse: separate;
+        }
+
+        .table th {
+            color: #fff;
+        }
+
+        .table td,
+        .table th {
+            padding: 0px;
+            border-top: 1px solid #ccc;
+            word-break: break-all;
+        }
+
+        .table--min {
+            min-width: 50vw;
+        }
+
+        @media screen and (max-width:768px) {
+
+            /*normal*/
+            .table-box {
+                overflow-x: auto;
+            }
+
+        }
+
+        @media screen and (max-width:1000px) {
+
+            .page {
+                font-family: "Pretendard Variable";
+                margin: 2em auto;
+                max-width: 90vw;
+                line-height: 1.5;
+            }
+
+            .table {
+                font-size: 50%;
+            }
+
+        }
+
+        button {
+            font-weight: 800;
+        }
+
+        button.or,
+        thead.or th {
+            background-color: #e67e3f
+        }
+
+        button.rr,
+        thead.rr th {
+            background-color: #ee1d23
+        }
+
+        button.gg,
+        thead.gg th {
+            background-color: #6dbf5d
+        }
+
+        button.pp,
+        thead.pp th {
+            background-color: #65449b
+        }
+
+        button.BB,
+        thead.BB th {
+            background-color: #2a5e9f
+        }
+
+        button.vv,
+        thead.vv th {
+            background-color: #9275b4
+        }
+
+        button.yy,
+        thead.yy th {
+            background-color: #efb637
+        }
+
+        button.GG,
+        thead.GG th {
+            background-color: #9ea0a0
+        }
+
+        .or>tr:nth-child(odd) {
+            background-color: #f9dacc;
+        }
+
+        .or>tr>td:nth-child(1) {
+            color: #fff;
+            background-color: #e67e3f;
+        }
+
+        .pn>tr:nth-child(even) {
+            background-color: #f6dce7;
+        }
+
+        .pn>tr>td:nth-child(1) {
+            color: #fff;
+            background-color: #d62b74;
+        }
+
+        .bl>tr:nth-child(odd) {
+            background-color: #d1ebf5;
+        }
+
+        .bl>tr>td:nth-child(1) {
+            color: #fff;
+            background-color: #309ecf;
+        }
+
+        .bb>tr:nth-child(even) {
+            background-color: #ccdaec;
+        }
+
+        .bb>tr>td:nth-child(1) {
+            color: #fff;
+            background-color: #1c70ae;
+        }
+
+        .rr>tr:nth-child(even) {
+            background-color: #fcdedd;
+        }
+
+        .rr>tr>td:nth-child(1) {
+            color: #fff;
+            background-color: #ee1d23;
+        }
+
+        .gg>tr:nth-child(even) {
+            background-color: #d8ebd4;
+        }
+
+        .gg>tr>td:nth-child(1) {
+            color: #fff;
+            background-color: #6dbf5d;
+        }
+
+        .pp>tr:nth-child(even) {
+            background-color: #ddd2e7;
+        }
+
+        .pp>tr>td:nth-child(1) {
+            color: #fff;
+            background-color: #65449b;
+        }
+
+        .BB>tr:nth-child(even) {
+            background-color: #d4e5f5;
+        }
+
+        .BB>tr>td:nth-child(1) {
+            color: #fff;
+            background-color: #2a5e9f;
+        }
+
+        .vv>tr:nth-child(even) {
+            background-color: #eee4f0;
+        }
+
+        .vv>tr>td:nth-child(1) {
+            color: #fff;
+            background-color: #9275b4;
+        }
+
+        .yy>tr:nth-child(even) {
+            background-color: #f9ebc2;
+        }
+
+        .yy>tr>td:nth-child(1) {
+            color: #fff;
+            background-color: #efb637;
+        }
+
+        .GG>tr:nth-child(even) {
+            background-color: #e7e7e6;
+        }
+
+        hr.bb {
+            margin-left: 1px;
+            margin-top: 0px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #1c70ae;
+            background-color: #1c70ae;
+        }
+
+        hr.rr {
+            margin-left: 1px;
+            margin-top: 0px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #ee1d23;
+            background-color: #ee1d23;
+        }
+
+        hr.gg {
+            margin-left: 1px;
+            margin-top: 0px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #6dbf5d;
+            background-color: #6dbf5d;
+        }
+
+        hr.pp {
+            margin-left: 1px;
+            margin-top: 0px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #65449b;
+            background-color: #65449b;
+        }
+
+        hr.BB {
+            margin-left: 1px;
+            margin-top: 0px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #2a5e9f;
+            background-color: #2a5e9f;
+        }
+
+        hr.vv {
+            margin-left: 1px;
+            margin-top: 0px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #9275b4;
+            background-color: #9275b4;
+        }
+
+        hr.yy {
+            margin-left: 1px;
+            margin-top: 0px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #efb637;
+            background-color: #efb637;
+        }
+
+        hr.GG {
+            margin-left: 1px;
+            margin-top: 0px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #9ea0a0;
+            background-color: #9ea0a0;
+        }
+
+        .collapsible {
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .active,
+        .collapsible:hover {
+            opacity: 60%;
+        }
+
+        .content {
+            padding: 0 0px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        hr.br2 {
+            background: transparent;
+            color: transparent;
+            margin: 0;
+            border-style: none;
+            height: 0.5vh;
+        }
+    </style>
+</head>
+
+<body>
+    <article class="page">
+        <div class="page-body">
+
+            <button class="collapsible or">교육기관</button>
+            <div class="content">
+
+                <hr class="br2">
+                <div class="table-box">
+                    <table class="table table--min" cellspacing="0" cellpadding="0">
+                        <thead class="or">
+                            <tr>
+                                <th style="width:2%"></th>
+                                <th>기관명</th>
+                                <th>연락처</th>
+                                <th>주소</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="or">
+                            <tr>
+                                <td>1</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://seoul-nj.sen.es.kr">서울남정초등학교병설유치원</a></td>
+                                <td>02-3273-6510</td>
+                                <td>원효로64길 17-10</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://seobinggo.sen.es.kr/">서울서빙고초등학교병설유치원</a></td>
+                                <td>02-796-8867</td>
+                                <td>서빙고로51길 14</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://s-cheongpa.sen.es.kr/">서울청파초등학교병설유치원</a></td>
+                                <td>02-701-3242</td>
+                                <td>효창원로 228</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://hannam.sen.es.kr/">서울한남초등학교병설유치원</a></td>
+                                <td>02-749-2393</td>
+                                <td>한남대로 112</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://cafe.daum.net/riversidekindergarte">강변유치원</a></td>
+                                <td>02-792-2652</td>
+                                <td>이촌로84길 9-7</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><a target="_blank" rel="noopener noreferrer" href="http://gskg.kr/">계성유치원</a></td>
+                                <td>02-712-0826</td>
+                                <td>효창원로15길 15</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.daegeon.kg.kr:507/home/">대건유치원</a></td>
+                                <td>02-790-5016</td>
+                                <td>이촌로81길 38</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>도원유치원</td>
+                                <td>02-713-1960</td>
+                                <td>새창로12길 11-8</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://cafe.naver.com/bokjakindergarten">복자유치원</a></td>
+                                <td>02-319-2915</td>
+                                <td>후암로34길 21-8</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>원유치원</td>
+                                <td>02-797-0038</td>
+                                <td>이촌로81길 14</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://www.ilminkids.com/">일민유치원</a></td>
+                                <td>02-704-0915</td>
+                                <td>효창원로 17</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://kids.choongshin.or.kr/">충신유치원</a></td>
+                                <td>02-793-4266</td>
+                                <td>이촌로71길 14</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://hangaram.kidis.co.kr/">한가람유치원</td>
+                                <td>02-796-8865</td>
+                                <td>이촌로89길 50</td>
+                            </tr>
+                        </tbody>
+
+                        <tbody class="pn">
+                            <tr>
+                                <td>14</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://keumyang.sen.es.kr/">서울금양초등학교</a></td>
+                                <td>02-704-2901</td>
+                                <td>효창원로 137</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://seoul-nj.sen.es.kr/">서울남정초등학교</a></td>
+                                <td>02-712-8938</td>
+                                <td>원효로64길 17-10</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://bogwang.sen.es.kr/">서울보광초등학교</a></td>
+                                <td>02-795-2549</td>
+                                <td>우사단로 20</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://seoulsamkwang.sen.es.kr/">서울삼광초등학교</a></td>
+                                <td>02-775-5588</td>
+                                <td>두텁바위로1나길 19</td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://seobinggo.sen.es.kr/">서울서빙고초등학교</a></td>
+                                <td>02-795-2435</td>
+                                <td>서빙고로51길 14</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://sys.sen.es.kr/">서울신용산초등학교</a></td>
+                                <td>02-793-2807</td>
+                                <td>이촌로 255</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://yongsan.sen.es.kr/">서울용산초등학교</a></td>
+                                <td>02-795-0782</td>
+                                <td>한강대로57길 33</td>
+                            </tr>
+                            <tr>
+                                <td>21</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://yongam.sen.es.kr/">서울용암초등학교</a></td>
+                                <td>02-796-2167</td>
+                                <td>녹사평대로60길 39</td>
+                            </tr>
+                            <tr>
+                                <td>22</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://wonhyo.sen.es.kr/">서울원효초등학교</a></td>
+                                <td>02-716-4424</td>
+                                <td>효창원로13길 38</td>
+                            </tr>
+                            <tr>
+                                <td>23</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://itaewon.sen.es.kr/">서울이태원초등학교</a></td>
+                                <td>02-795-2809</td>
+                                <td>녹사평대로40길 19</td>
+                            </tr>
+                            <tr>
+                                <td>24</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://s-cheongpa.sen.es.kr/">서울청파초등학교</a></td>
+                                <td>02-701-3242</td>
+                                <td>효창원로 228</td>
+                            </tr>
+                            <tr>
+                                <td>25</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://hangang.sen.es.kr/">서울한강초등학교</a></td>
+                                <td>02-795-0584</td>
+                                <td>한강대로14길 9</td>
+                            </tr>
+                            <tr>
+                                <td>26</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://hannam.sen.es.kr/">서울한남초등학교</a></td>
+                                <td>02-749-2371</td>
+                                <td>한남대로 112</td>
+                            </tr>
+                            <tr>
+                                <td>27</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://huam.sen.es.kr/">서울후암초등학교</a></td>
+                                <td>02-779-3936</td>
+                                <td>두텁바위로 140</td>
+                            </tr>
+                            <tr>
+                                <td>28</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://www.shinkwang.es.kr/">신광초등학교</a></td>
+                                <td>02-710-7900</td>
+                                <td>청파로 263</td>
+                            </tr>
+                        </tbody>
+
+                        <tbody class="bl">
+                            <tr>
+                                <td>29</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://baemoon.sen.ms.kr/">배문중학교</a></td>
+                                <td>02-3480-7243</td>
+                                <td>효창원로 258</td>
+                            </tr>
+                            <tr>
+                                <td>30</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://bosung-g.sen.ms.kr/">보성여자중학교</a></td>
+                                <td>070-4000-3130</td>
+                                <td>신흥로3가길 66</td>
+                            </tr>
+                            <tr>
+                                <td>31</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://sunrin.sen.ms.kr/">선린중학교</a></td>
+                                <td>02-713-6214</td>
+                                <td>원효로97길 33-4</td>
+                            </tr>
+                            <tr>
+                                <td>32</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://sacredheart.sen.ms.kr/">성심여자중학교</a></td>
+                                <td>02-3273-4132</td>
+                                <td>원효로19길 49</td>
+                            </tr>
+                            <tr>
+                                <td>33</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://shinkwang.sen.ms.kr/">신광여자중학교</a></td>
+                                <td>02-710-6990</td>
+                                <td>청파로 263</td>
+                            </tr>
+                            <tr>
+                                <td>34</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://osan.sen.ms.kr/">오산중학교</a></td>
+                                <td>02-799-9400</td>
+                                <td>보광로7길 17</td>
+                            </tr>
+                            <tr>
+                                <td>35</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://yonggang.sen.ms.kr/">용강중학교</a></td>
+                                <td>02-790-1857</td>
+                                <td>이촌로65가길 91</td>
+                            </tr>
+                            <tr>
+                                <td>36</td>
+                                <td><a target="_blank" rel="noopener noreferrer" href="https://ys.sen.ms.kr/">용산중학교</a>
+                                </td>
+                                <td>070-4000-3800</td>
+                                <td>두텁바위로 74</td>
+                            </tr>
+                            <tr>
+                                <td>37</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://hangang.sen.ms.kr/">한강중학교</a></td>
+                                <td>02-794-1791</td>
+                                <td>녹사평대로 73</td>
+                            </tr>
+                        </tbody>
+
+                        <tbody class="bb">
+                            <tr>
+                                <td>38</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://baemoon.hs.kr/">배문고등학교</a></td>
+                                <td>02-3480-7100</td>
+                                <td>효창원로 258</td>
+                            </tr>
+                            <tr>
+                                <td>39</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://bosung.sen.hs.kr/">보성여자고등학교</a></td>
+                                <td>070-4000-3030</td>
+                                <td>신흥로3가길 66</td>
+                            </tr>
+                            <tr>
+                                <td>40</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://www.sdh.hs.kr/">서울디지텍고등학교</a></td>
+                                <td>02-798-3641</td>
+                                <td>회나무로12길 27</td>
+                            </tr>
+                            <tr>
+                                <td>41</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://sunrint.sen.hs.kr/">선린인터넷고등학교</a></td>
+                                <td>02-713-6211</td>
+                                <td>원효로97길 33-4</td>
+                            </tr>
+                            <tr>
+                                <td>42</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://sacredheart.sen.hs.kr/">성심여자고등학교</a></td>
+                                <td>02-702-5501</td>
+                                <td>원효로19길 49</td>
+                            </tr>
+                            <tr>
+                                <td>43</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://shinkwang.sen.hs.kr/">신광여자고등학교</a></td>
+                                <td>02-710-6940</td>
+                                <td>청파로 263</td>
+                            </tr>
+                            <tr>
+                                <td>44</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://osan.sen.hs.kr/">오산고등학교</a></td>
+                                <td>02-799-9500</td>
+                                <td>보광로7길 17</td>
+                            </tr>
+                            <tr>
+                                <td>45</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://yongsan.sen.hs.kr/">용산고등학교</a></td>
+                                <td>02-3706-6700</td>
+                                <td>두텁바위로 60</td>
+                            </tr>
+                            <tr>
+                                <td>46</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://yongsan-th.sen.hs.kr/">용산철도고등학교</a></td>
+                                <td>02-6905-7777</td>
+                                <td>서빙고로 24</td>
+                            </tr>
+                            <tr>
+                                <td>47</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://jungkyung.sen.hs.kr/">중경고등학교</a></td>
+                                <td>02-793-2540</td>
+                                <td>이촌로84길 34</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <hr class="bb">
+                </div>
+            </div>
+
+            <button class="collapsible BB">복지기관</button>
+            <div class="content">
+                <hr class="br2">
+                <div class="table-box">
+                    <table class="table table--min" cellspacing="0" cellpadding="0">
+                        <thead class="BB">
+                            <tr>
+                                <th style="width:2%"></th>
+                                <th>기관명</th>
+                                <th>주요사업</th>
+                                <th>연락처</th>
+                                <th>주소</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="BB">
+                            <tr>
+                                <td>1</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://www.yseduwith.com/">용산교육복지센터</a></td>
+                                <td>학교-마을 교육복지 거점역할<br>아동·청소년 학교적응력,<br>정서·행동, 가족지원 등<br>통합교육복지서비스 제공</td>
+                                <td>02-790-0379</td>
+                                <td>이태원로23길 19, 2층</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://www.galwol.or.kr/">갈월종합사회복지관</a></td>
+                                <td>가족, 지역, 재가 복지사업 운영,<br>연령별 사회교육, 생활체육<br>프로그램 제공, 사례관리</td>
+                                <td>02-752-7887</td>
+                                <td>두텁바위로 25</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://yongsan.familynet.or.kr">용산구 가족센터</a></td>
+                                <td>부모교육, 다문화가족 지원<br>가족나들이, 자녀생활지원서비스<br>한국어교육 등 서비스 제공</td>
+                                <td>02-797-8184</td>
+                                <td>이태원로 224-19 3층</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://yongsanyouthtown.or.kr/main/?skin=1116">용산구드림스타트</a></td>
+                                <td>지역자원과 연계한 맞춤형 서비스<br>제공, 주기적인 재사정 및<br>지속적인 모니터링 등<br>통합사례관리 기관</td>
+                                <td>02-2199-7024~7</td>
+                                <td>백범로 329<br>용산꿈나무종합타운 5층</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://ysccic.or.kr/">용산구<br>육아종합지원센터</a></td>
+                                <td>전문적인 보육정보서비스 제공 및<br>질 높은 보육환경 조성을 위한<br>기능과 역할 수행</td>
+                                <td>02-749-9673</td>
+                                <td>백범로 329<br>용산꿈나무종합타운 2층</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://yongsan.seoulvc.kr/">용산구자원봉사센터</a></td>
+                                <td>자원봉사 모집/관리<br>자원봉사 교육 훈련 등</td>
+                                <td>02-718-1365</td>
+                                <td>청파로49길 34, 3층</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yswf.or.kr/">용산복지재단</a></td>
+                                <td>위기가구와 저소득층 생계,<br>의료, 주거비, 청소년 교육비 지원</td>
+                                <td>02-2074-9191</td>
+                                <td>이태원로 224-19, 2층</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.ysrehab.or.kr/">용산장애인복지관</a></td>
+                                <td>종합상담, 고충처리상담,<br>인권교육, 사례관리,<br>언어/인지 치료</td>
+                                <td>02-707-1970</td>
+                                <td>효창원로 93길 49</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.i-sh.co.kr/centys/index.do">용산주거안심종합센터</a></td>
+                                <td>주거취약계층 주거비 지원 등<br>맞춤형 주거복지서비스 지원</td>
+                                <td>02-6713-5055</td>
+                                <td>백범로99길 40, 101동 2층</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>용산구청소년지원센터<br>꿈드림</td>
+                                <td>학교 밖 청소년 상담, 교육,<br>직업체험 및 취업, 자립지원</td>
+                                <td>02-3273-5820</td>
+                                <td>백범로 329<br>용산꿈나무종합타운 4층</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.hyochang.or.kr:6017/">효창종합사회복지관</a></td>
+                                <td>가족, 지역사회조직 등 복지사업 운영,<br>연령별 건강, 가족 복지프로그램 제공,<br>사례관리</td>
+                                <td>02-716-0600</td>
+                                <td>효창원로 146-12</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://ys.dfsc.or.kr/">용산구장애인가족지원센터</a></td>
+                                <td>상담 및 사례관리, 동료상담가지원,<br>부모/비장애 형제·자매모임,<br>돌봄지원사업</td>
+                                <td>02-798-9935</td>
+                                <td>백범로 329<br>용산구보건분소 4층</td>
+                            </tr>
+
+                        </tbody>
+
+
+                    </table>
+
+                    <hr class="BB">
+                </div>
+            </div>
+
+            <button class="collapsible vv">상담기관</button>
+            <div class="content">
+                <hr class="br2">
+                <div class="table-box">
+                    <table class="table table--min" cellspacing="0" cellpadding="0">
+                        <thead class="vv">
+                            <tr>
+                                <th style="width:2%"></th>
+                                <th>기관명</th>
+                                <th>주요사업</th>
+                                <th>연락처</th>
+                                <th>주소</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="vv">
+                            <tr>
+                                <td>1</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://nuryworld.kr/">서울시립용산일시청소년쉼터</a></td>
+                                <td>청소년가출 및 비행, 가출청소년<br>긴급생활지원, 상담 및 교육 등</td>
+                                <td>02-718-1318</td>
+                                <td>만리재로 156-1</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://www.ysmind.org/">용산구정신건강복지센터</a></td>
+                                <td>정신건강관리 및 정신건강증진 사업<br>프로그램 및 의료비 지원</td>
+                                <td>02-2199-8340</td>
+                                <td>백범로 329<br>용산구보건소 2층</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://dodoit.or.kr/">용산구청소년상담복지센터</a></td>
+                                <td>청소년 전문상담기관<br>청소년 안전망 운영</td>
+                                <td>02-3273-5820</td>
+                                <td>백범로 329<br>용산꿈나무종합타운 4층</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://jbedu.sen.go.kr/CMS/school/school08/school0802/school080201/index.html">중부
+                                        Wee센터</a></td>
+                                <td>개인상담, 심리검사, 집단상담,<br>특별교육, 특별상담 등</td>
+                                <td>070-4366-3668</td>
+                                <td>용산구 두텁바위로 74<br>용산중학교 후관 3층</td>
+                            </tr>
+
+                        </tbody>
+
+
+                    </table>
+
+                    <hr class="vv">
+                </div>
+            </div>
+
+            <button class="collapsible rr">돌봄기관</button>
+            <div class="content">
+                <hr class="br2">
+                <div class="table-box">
+                    <table class="table table--min" cellspacing="0" cellpadding="0">
+                        <thead class="rr">
+                            <tr>
+                                <th style="width:2%"></th>
+                                <th>기관명</th>
+                                <th>연락처</th>
+                                <th>주소</th>
+                                <th>대상</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="rr">
+                            <tr>
+                                <td>1</td>
+                                <td>빛나라공부방지역아동센터</td>
+                                <td>02-756-3045</td>
+                                <td>신흥로 36가길 1-4 지층 1층</td>
+                                <td>초/중/고</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.instagram.com/lifetree_kids/">생명나무지역아동센터</a></td>
+                                <td>02-719-5120</td>
+                                <td>백범로43길2, 지하1층</td>
+                                <td>초</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>소망을찾는이지역아동센터</td>
+                                <td>02-3789-1216</td>
+                                <td>두텁바위로1길 70</td>
+                                <td>초/중/고</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.youngcenter.or.kr/">영락지역아동복지센터</a></td>
+                                <td>02-310-9684</td>
+                                <td>후암로4길 70</td>
+                                <td>초</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>풍성한지역아동센터</td>
+                                <td>02-794-4060</td>
+                                <td>보광로5길 1-8, 2층</td>
+                                <td>초/중/고</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><a target="_blank" rel="noopener noreferrer" href="">한살림용산지역아동센터</a></td>
+                                <td>02-711-8111</td>
+                                <td>효창원로94길 23, 4층</td>
+                                <td>초</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://haesim.org/">혜심지역아동복지센터(혜심원)</a></td>
+                                <td>02-755-8459</td>
+                                <td>소월로2나길 18</td>
+                                <td>미취학/초/중/고</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.hyochang.or.kr:6017/?c=loc&mcd=hcf0002">효창방과후교실(꾸러기 교실)</a>
+                                </td>
+                                <td>02-716-0600</td>
+                                <td>효창원로146-12<br>효창종합사회복지관 4층</td>
+                                <td>초</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.instagram.com/nations_kids/">피난처 열국아이학교(이태원)</a></td>
+                                <td>02-875-5382</td>
+                                <td>우사단로 10길 42, 1층</td>
+                                <td>초/중/고</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://icare.seoul.go.kr/">우리동네키움센터 용산1호점</a></td>
+                                <td>02-713-1024</td>
+                                <td>원효로64길 25</td>
+                                <td>초</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://icare.seoul.go.kr/">우리동네키움센터 용산2호점</a></td>
+                                <td>02-713-0019</td>
+                                <td>이촌로 2가길 75</td>
+                                <td>초</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://icare.seoul.go.kr/">우리동네키움센터 용산4호점</a></td>
+                                <td>02-704-2112</td>
+                                <td>효창원로 160</td>
+                                <td>초</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://icare.seoul.go.kr/">우리동네키움센터 용산5호점</a></td>
+                                <td>02-717-1112</td>
+                                <td>효창원로 39, 2층</td>
+                                <td>초</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://icare.seoul.go.kr/">우리동네키움센터 용산6호점</a></td>
+                                <td>02-749-2631</td>
+                                <td>서빙고로 17, 2층</td>
+                                <td>초</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://icare.seoul.go.kr/">우리동네키움센터 용산7호점</a></td>
+                                <td>02-790-6665</td>
+                                <td>서빙고로 279, 4층</td>
+                                <td>초</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://icare.seoul.go.kr/">우리동네키움센터 용산8호점</a></td>
+                                <td>02-792-9229</td>
+                                <td>녹사평대로40나길 37</td>
+                                <td>초</td>
+                            </tr>
+
+                        </tbody>
+
+
+                    </table>
+
+                    <hr class="rr">
+                </div>
+            </div>
+
+            <button class="collapsible gg">공공기관</button>
+            <div class="content">
+                <hr class="br2">
+                <div class="table-box">
+                    <table class="table table--min" cellspacing="0" cellpadding="0">
+                        <thead class="gg">
+                            <tr>
+                                <th style="width:2%"></th>
+                                <th>기관명</th>
+                                <th>주요사업</th>
+                                <th>연락처</th>
+                                <th>주소</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="gg">
+                            <tr>
+                                <td>1</td>
+                                <td><a target="_blank" rel="noopener noreferrer" href="https://yongsan.go.kr">용산구청</a>
+                                </td>
+                                <td>[인재양성과]장학사업및학교지원(혁신사업)<br>[희망복지팀]통합사례관리및복지서비스연계</td>
+                                <td>02-2199-6483<br>02-2199-7063</td>
+                                <td>녹사평대로 150</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.smpa.go.kr/home/homeIndex.do?menuCode=ys">용산경찰서</a></td>
+                                <td>어린이범죄예방교실,<br>교통안전교육, 경찰서 견학 등</td>
+                                <td>182</td>
+                                <td>원효로89길 24</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://fire.seoul.go.kr/yongsan/main/main.do">용산소방서</a></td>
+                                <td>안전체험교실, 이동 안전체험차량교육<br>출장소방 안전교육 등</td>
+                                <td>02-6943-1474</td>
+                                <td>한강대로 167</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/health/main/main.do">용산구보건소</a></td>
+                                <td>음주·흡연예방교육,<br>청소년생명존중교육 등</td>
+                                <td>02-2199-8012~3</td>
+                                <td>녹사평대로 150<br>백범로 329(보건분소)</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=03">남영동주민센터</a></td>
+                                <td rowspan="16">동별 통합사례관리</td>
+                                <td>02-2199-8440</td>
+                                <td>두텁바위로 25</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=16">보광동주민센터</a></td>
+                                <td>02-2199-8440</td>
+                                <td>장문로 95</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=15">서빙고동주민센터</a></td>
+                                <td>02-2199-8700</td>
+                                <td>서빙고로 279</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=08">용문동주민센터</a></td>
+                                <td>02-2199-8540</td>
+                                <td>새창로12길 13</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=02">용산2가동주민센터</a></td>
+                                <td>02-2199-8420</td>
+                                <td>신흥로 90</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=05">원효로1동주민센터</a></td>
+                                <td>02-2199-8480</td>
+                                <td>백범로 350</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=06">원효로2동주민센터</a></td>
+                                <td>02-2199-8500</td>
+                                <td>효창원로8길 3</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=10">이촌1동주민센터</a></td>
+                                <td>02-2199-8580</td>
+                                <td>이촌로71길 24</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=11">이촌2동주민센터</a></td>
+                                <td>02-2199-8600</td>
+                                <td>이촌로18길 20</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=12">이태원1동주민센터</a></td>
+                                <td>02-2199-8620</td>
+                                <td>보광로 104-6</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=13">이태원2동주민센터</a></td>
+                                <td>02-2199-8640</td>
+                                <td>회나무로13길 58</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=04">청파동주민센터</a></td>
+                                <td>02-2199-8460</td>
+                                <td>청파로49길 6</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=09">한강로동주민센터</a></td>
+                                <td>02-2199-8560</td>
+                                <td>한강대로38길 28</td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=14">한남동주민센터</a></td>
+                                <td>02-2199-8660</td>
+                                <td>대사관로5길 1</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=07">효창동주민센터</a></td>
+                                <td>02-2199-8520</td>
+                                <td>효창원로 161</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yongsan.go.kr/dong/main/main.do?dongCd=01">후암동주민센터</a></td>
+                                <td>02-2199-8400</td>
+                                <td>후암로 32-6</td>
+                            </tr>
+                        </tbody>
+
+
+                    </table>
+
+                    <hr class="gg">
+                </div>
+            </div>
+
+            <button class="collapsible yy">문화예술기관</button>
+            <div class="content">
+                <hr class="br2">
+                <div class="table-box">
+                    <table class="table table--min" cellspacing="0" cellpadding="0">
+                        <thead class="yy">
+                            <tr>
+                                <th style="width:2%"></th>
+                                <th>기관명</th>
+                                <th>주요사업</th>
+                                <th>연락처</th>
+                                <th>주소</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="yy">
+                            <tr>
+                                <td>1</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yong-san.or.kr/youthpool/">용산청소년센터</a></td>
+                                <td>청소년활동지원 및<br>다양한 청소년 사업 운영</td>
+                                <td>02-749-0102</td>
+                                <td>이촌로71길 24</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.warmemo.or.kr/">전쟁기념관</a></td>
+                                <td>군사박물관으로 전시, 보존, 교육 등<br>프로그램 운영, 비상대피체험관 운영</td>
+                                <td>02-709-3114</td>
+                                <td>이태원로 29</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.ssro.net/main/index.jsp">서울시립청소년미디어센터<br>스스로넷</a></td>
+                                <td>미디어 체험, 활동, 캠프,<br>미디어대안학교 및 미디어 과의존 예방,<br>상담 프로그램 운영</td>
+                                <td>02-795-8000</td>
+                                <td>한강대로 255</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.koreaislam.org/">한국이슬람교<br>서울중앙성원</a></td>
+                                <td>서울 유일의 이슬람사원<br>이슬람 교리, 문화, 역사 등 소개</td>
+                                <td>02-793-6908</td>
+                                <td>우사단로10길 39</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a target="_blank" rel="noopener noreferrer" href="https://www.leeum.org/">삼성미술관
+                                        리움</a></td>
+                                <td>세계적인 건축가들이 설계한 건물이<br>미술이 되는 곳, 근·현대미술작품 전시</td>
+                                <td>02-2014-6900</td>
+                                <td>이태원로55길 60-16</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://museum.go.kr/">국립중앙박물관</a></td>
+                                <td>우리나라 역사 문화를 대표하는 공간으로<br>유물전시, 어린이 박물관 등 운영</td>
+                                <td>02-2077-9000</td>
+                                <td>서빙고로 137</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.facebook.com/SPACESHINSEON/">스페이스 신선</a></td>
+                                <td>음식 문화와 예술, 나눔이 있는 공간<br>음식관련 미술관</td>
+                                <td>02-793-7400</td>
+                                <td>이태원로 256</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.facebook.com/dreamtreevillage">드림트리빌리지</a></td>
+                                <td>실용음악 관련 문화예술교육서비스 제공<br>보컬·밴드·합창 작사·작곡·녹음/ 비전캠프</td>
+                                <td>010-4857-9844</td>
+                                <td>백범로 99길 40</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://www.kimkoomuseum.org/">백범김구기념관</a></td>
+                                <td>전시관람, 체험학습, 교육문화프로그램 운영</td>
+                                <td>02-799-3400</td>
+                                <td>임정로 26</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://yongsanyouthtown.or.kr/">용산청소년문화의집</a></td>
+                                <td>청소년 전용공간, 지역 참여활동 및<br>꿈과 끼를 개발하는 활동 지원</td>
+                                <td>02-707-0704</td>
+                                <td>백범로 329<br>용산꿈나무종합타운 5층</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><a target="_blank" rel="noopener noreferrer" href="http://dalggott.org/">달꽃창작소</a>
+                                </td>
+                                <td>청소년 문화예술 토요학교 및<br>청년 커뮤니티 운영</td>
+                                <td>02-318-2013</td>
+                                <td>신흥로26길 20<br>해방타워 B102호</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td><a target="_blank" rel="noopener noreferrer" href="https://www.miraeya.or.kr/">용산구
+                                        진로직업체험지원센터<br>미래야</a></td>
+                                <td>청소년을 위한 다양한 자기이해,<br>직업체험 및 진로설계 프로그램 운영</td>
+                                <td>070-7165-1034~6</td>
+                                <td>한강대로 255</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.hangeul.go.kr/">국립한글박물관</a></td>
+                                <td>한글과 한글문화 상설전시실과<br>기획전시실 운영 및 프로그램 운영</td>
+                                <td>02-2124-6200</td>
+                                <td>서빙고로 139</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://crafts.yongsan.go.kr/">용산공예관</a></td>
+                                <td>한복/도자기체험/공예체험 및 관람</td>
+                                <td>02-2199-6180</td>
+                                <td>이태원로 274</td>
+                            </tr>
+
+                        </tbody>
+
+
+                    </table>
+
+                    <hr class="yy">
+                </div>
+            </div>
+
+            <button class="collapsible pp">도서관</button>
+            <div class="content">
+                <hr class="br2">
+                <div class="table-box">
+                    <table class="table table--min" cellspacing="0" cellpadding="0">
+                        <thead class="pp">
+                            <tr>
+                                <th style="width:2%"></th>
+                                <th>기관명</th>
+                                <th>이용시간</th>
+                                <th>휴관일</th>
+                                <th>연락처</th>
+                                <th>주소</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="pp">
+                            <tr>
+                                <td>1</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://nslib.sen.go.kr/">서울특별시교육청<br>남산도서관</a></td>
+                                <td>평일 9:00~20:00<br>주말 9:00~17:00<br>(11월-2월 평일 9:00~19:00)</td>
+                                <td>매월 첫째, 셋째 월요일 및<br>법정공휴일</td>
+                                <td>02-754-7338</td>
+                                <td>소월로 109</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://yslib.sen.go.kr/">서울특별시교육청<br>용산도서관</td>
+                                <td>평일 9:00~20:00<br>주말 9:00~17 00</td>
+                                <td>매월 둘째, 넷째 화요일 및<br>법정공휴일</td>
+                                <td>02-6902-7777</td>
+                                <td>두텁바위로 160</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=5">남영동
+                                        작은도서관</td>
+                                <td>평일 9:00~17:00</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-775-9260</td>
+                                <td>두텁바위로1길 13<br>갈월경로당 B1층</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><a target="_blank" rel="noopener noreferrer" href="https://www.barakakorea.com/">바라카
+                                        작은도서관</td>
+                                <td>평일 9:00~18:00</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>010-5633-2507</td>
+                                <td>우사단로 13-2</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=15">별밭
+                                        작은도서관</td>
+                                <td>평일 9:30~17:30</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-2199-8740</td>
+                                <td>대사관로34길 49, 4층</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=13">서빙고동
+                                        작은도서관</td>
+                                <td>평일 13:00~17:00</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-2199-8746</td>
+                                <td>서빙고로 279<br>서빙고동주민센터 4층</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=8">오렌지나무
+                                        작은도서관</td>
+                                <td>평일 13:00~17:00</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-2199-8754</td>
+                                <td>효창원로37길 1<br>용문동 어울림센터 2층</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/dream/">용산 꿈나무 도서관</td>
+                                <td>평일 9:00~21:00<br>주말 9:00~17:00</td>
+                                <td>매주 월요일, 법정공휴일</td>
+                                <td>02-707-0138</td>
+                                <td>백범로 329<br>용산꿈나무종합타운 3층</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=2">용암
+                                        어린이 영어도서관</td>
+                                <td>평일10:00~19:00<br>주말 10:00~17:00</td>
+                                <td>일요일 및 법정공휴일</td>
+                                <td>02-798-4181~2</td>
+                                <td>신흥로3가길 21-7, 2층</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=6">원효로제2동
+                                        작은도서관<br>두드림</td>
+                                <td>평일 9:30~17:30</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-2199-8755</td>
+                                <td>효창원로8길 3<br>원효2동주민센터 4층</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=10">이촌2동
+                                        작은도서관</td>
+                                <td>평일 14:00~18:00</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-2199-8756</td>
+                                <td>이촌로18길 20<br>이촌2동주민센터 4층</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=14">작은도서관
+                                        꿈꾸는책마을</td>
+                                <td>평일 13:00~17:00</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-2199-8747</td>
+                                <td>장문로 95<br>보광동주민센터 1층</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://cafe.naver.com/bookwhale">고래이야기 작은도서관</td>
+                                <td>평일 13:00~17:00<br>주말 토 10:00~19:00</td>
+                                <td>매주 월요일 및 일요일</td>
+                                <td>070-8950-0615</td>
+                                <td>효창원로 157<br>효창맨션 1층</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=16">청소년
+                                        푸르미르 작은도서관</td>
+                                <td>평일 9:00~18:00<br>(점심시간 미운영 12:00~13:00)</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-749-0102</td>
+                                <td>이촌로 71길 24<br>용산청소년센터 5층</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/cheongpa/">청파도서관</td>
+                                <td>평일 9:00~21:00<br>주말 9:00~17:00</td>
+                                <td>매주 월요일, 법정공휴일</td>
+                                <td>02-714-3931</td>
+                                <td>청파로93길 27, 1층</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=1">청파
+                                        어린이 영어도서관</td>
+                                <td>평일 10:00~19:00<br>주말 토 10:00~17:00</td>
+                                <td>일요일 및 법정공휴일</td>
+                                <td>02-702-0641~2</td>
+                                <td>청파로 49길 34, 4층</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=9">한강로동
+                                        작은도서관</td>
+                                <td>평일 10:00~17:00</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-2199-8743</td>
+                                <td>한강대로38길 28<br>한강로동주민센터 3층</td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=12">한남동
+                                        작은도서관</td>
+                                <td>평일 13:00~17:00</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-2199-8742</td>
+                                <td>이태원로 224-19<br>한남동공영주차장 2층</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=4">해다올
+                                        작은도서관</td>
+                                <td>평일 13:00~17:00</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-2199-8739</td>
+                                <td>신흥로 90<br>용산2가동주민센터 B1층</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=11">회나무
+                                        작은도서관</td>
+                                <td>평일 10:00~14:00</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-2199-8759</td>
+                                <td>회나무로13길 58<br>이태원2동주민센터 1층</td>
+                            </tr>
+                            <tr>
+                                <td>21</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=7">효창동
+                                        작은도서관</td>
+                                <td>평일 13:00~17:00</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-2199-8753</td>
+                                <td>효창원로 161<br>효창동주민센터 3층</td>
+                            </tr>
+                            <tr>
+                                <td>22</td>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yslibrary.or.kr/small/menu/10174/program/30074/smallLibDetail.do?smallLibIdx=3">후암동
+                                        작은도서관 북앤캠프</td>
+                                <td>평일 10:00~17:00<br>(점심시간 미운영 12:00~13:00)</td>
+                                <td>주말(토,일) 및 법정공휴일</td>
+                                <td>02-2199-8758</td>
+                                <td>후암로 32-6<br>후암동주민센터 2층</td>
+                            </tr>
+
+                        </tbody>
+
+
+                    </table>
+
+                    <hr class="pp">
+                </div>
+            </div>
+
+            <button class="collapsible GG">기타 및 공통 기관</button>
+            <div class="content">
+                <hr class="br2">
+                <div class="table-box">
+                    <table class="table table--min" cellspacing="0" cellpadding="0">
+                        <thead class="GG">
+                            <tr>
+                                <th>기관명</th>
+                                <th>주요사업</th>
+                                <th>대상</th>
+                                <th>연락처</th>
+                                <th>주소</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="GG">
+                            <tr>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="http://jbedu.sen.go.kr/">중부교육지원청</a></td>
+                                <td>중부(중구,용산구,종로구) 유/초/중/고의<br>교육과정 계획수립 및 지원</td>
+                                <td>8~19세</td>
+                                <td>02-708-6500</td>
+                                <td>종로구 대학로 10</td>
+                            </tr>
+                            <tr>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://mapo.sc.or.kr/">서울마포아동보호전문기관</a></td>
+                                <td>아동학대 예방 및<br>학대피해아동 사례관리 기관</td>
+                                <td>0~18세</td>
+                                <td>02-422-1391</td>
+                                <td>마포구 신수로 46 공구빌딩 401호</td>
+                            </tr>
+                            <tr>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://child.seoul.go.kr/">서울시아동복지센터</a></td>
+                                <td>상담, 보호, 학대예방 등 종합적인<br>아동복지서비스 기능 수행 행정기관</td>
+                                <td>0~18세</td>
+                                <td>02-2040-4200</td>
+                                <td>강남구 광평로34길 124</td>
+                            </tr>
+                            <tr>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.imbom.or.kr/">서울시립십대여성건강센터</a></td>
+                                <td>여성청소년 무료진료, 심리지원,<br>성건강교육 서비스 제공기관</td>
+                                <td>10대 여성</td>
+                                <td>02-6227-1541</td>
+                                <td>마포구 어울마당로 5길 34</td>
+                            </tr>
+                            <tr>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.facebook.com/talkalba">알바상담소</a></td>
+                                <td>청소년 알바노동자 무료 상담,<br>노동법 교육 및 재무설계 교육</td>
+                                <td>모든 연령</td>
+                                <td>02-715-7525</td>
+                                <td>백범로 99길 40 101동 지하1층<br>서울시공익활동공간 삼각지</td>
+                            </tr>
+                            <tr>
+                                <td><a target="_blank" rel="noopener noreferrer" href="http://jaizone.or.kr/">중구아이존</a>
+                                </td>
+                                <td>정서행동 문제를 가진<br>아동·청소년을 위한 심리치료기관</td>
+                                <td>서울시 거주 만6세 이상</td>
+                                <td>02-2038-7650</td>
+                                <td>중구 서소문로6길 16, 중림종합복지센터 3층</td>
+                            </tr>
+                            <tr>
+                                <td><a target="_blank" rel="noopener noreferrer"
+                                        href="https://www.seoulhanbumo.or.kr/">서울시한부모가족지원센터</a></td>
+                                <td>한부모 가족<br>맞춤형 서비스 제공기관</td>
+                                <td>가족</td>
+                                <td>02-861-3020</td>
+                                <td>현충로 75 원불교 소태산기념관 4층</td>
+                            </tr>
+                        </tbody>
+
+
+                    </table>
+
+                    <hr class="GG">
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <script>
+        let coll = document.getElementsByClassName("collapsible")
+        let i
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+                let j
+                for (j = 0; j < coll.length; j++)
+                    if (this == coll[j])
+                        continue
+                    else {
+                        if (coll[j].nextElementSibling.style.maxHeight) {
+                            coll[j].nextElementSibling.style.maxHeight = null
+                            coll[j].classList.toggle("active")
+                        }
+                    }
+                this.classList.toggle("active")
+                let content = this.nextElementSibling
+                if (content.style.maxHeight)
+                    content.style.maxHeight = null
+                else
+                    content.style.maxHeight = content.scrollHeight + "px";
+            })
+        }
+    </script>
+
+
+</body>
+
+</html>
