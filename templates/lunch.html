@@ -10,33 +10,20 @@
 
 	<link href="/css/main.css" rel="stylesheet" type="text/css">
 
-	<title>sunrin-lunch 08.22</title>
+	<title>sunrin-lunch {{ date }}</title>
 </head>
 
 <body>
 	<article class="page">
 		<header>
-			<h1 class="page-title">sunrin-lunch 08.22</h1>
+			<h1 class="page-title">sunrin-lunch {{ date }}</h1>
 		</header>
 		<div class="page-body">
 			<ul>
-				
-				<li>찰옥수수알밥</li>
-				
-				<li>카레소스</li>
-				
-				<li>&새우튀김</li>
-				
-				<li>바싹떡갈비구이</li>
-				
-				<li>파채무침</li>
-				
-				<li>깍두기</li>
-				
-				<li>딸기에이드(수제)</li>
-				
+				{% for menu in lunch %}
+				<li>{{ menu }}</li>
+				{% endfor%}
 			</ul>
-			<h3></h3>
 		</div>
 	</article>
 </body>

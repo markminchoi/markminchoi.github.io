@@ -1,10 +1,12 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Get lunch data && Deploy static content to Pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+  
+  schedule:
+    - cron: "0 15 * * 0-4"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,7 +24,31 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
+  get_lunch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.9"
+          cache: 'pip'
+          cache-dependency-path: |
+            **/setup.cfg
+            **/requirements*.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Get Lunch
+        run: |
+          python lunch.py
+      - name: Copy file
+        run: |
+          cp lunch.html static/
+
   deploy:
     environment:
       name: github-pages
@@ -37,7 +63,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload entire repository
-          path: '.'
+          path: 'static/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
