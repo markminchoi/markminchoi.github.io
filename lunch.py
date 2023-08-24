@@ -20,6 +20,7 @@ try:
     
     if response.ok == False:
         print('HTTP Req Error!')
+        print(response.text)
         exit()
 
     html = response.text    
