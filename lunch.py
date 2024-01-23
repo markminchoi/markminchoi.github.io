@@ -37,6 +37,7 @@ try:
 
 except:
     print('Exception!')
+    exit()
 
 finally:
     with open('./lunch.html', 'w', encoding='utf-8') as fh:
